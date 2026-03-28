@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system - Milky Navy Enterprise Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 40 30% 96%;
+    --foreground: 220 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 50% 15%;
+
+    --primary: 220 60% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 30% 85%;
+    --secondary-foreground: 220 50% 15%;
+
+    --muted: 40 25% 90%;
+    --muted-foreground: 220 30% 40%;
+
+    --accent: 30 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 220 60% 25%;
+    
+    --permit-hot: 15 90% 55%;
+    --permit-electric: 45 95% 50%;
+    --permit-cold: 200 85% 50%;
+    --permit-composite: 280 70% 55%;
+    
+    --status-expired: 0 75% 50%;
+    --status-warning: 35 90% 50%;
+    --status-active: 145 70% 40%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 40 25% 94%;
+    --sidebar-foreground: 220 50% 15%;
+    --sidebar-primary: 220 60% 25%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 25% 88%;
+    --sidebar-accent-foreground: 220 50% 15%;
+    --sidebar-border: 220 20% 88%;
+    --sidebar-ring: 220 60% 30%;
+
+    /* Custom theme colors */
+    --navy: 220 60% 20%;
+    --khaki: 40 35% 65%;
+    --orange: 30 90% 55%;
+    --milky: 40 30% 96%;
+  }
+
+  .dark {
+    /* SEC-Inspired Formal Dark Theme - Deep Navy & Teal */
+    --background: 210 45% 4%;
+    --foreground: 180 15% 92%;
+
+    --card: 210 40% 8%;
+    --card-foreground: 180 15% 92%;
+
+    --popover: 210 40% 8%;
+    --popover-foreground: 180 15% 92%;
+
+    --primary: 175 65% 42%;
+    --primary-foreground: 210 45% 4%;
+
+    --secondary: 210 35% 14%;
+    --secondary-foreground: 180 15% 88%;
+
+    --muted: 210 30% 12%;
+    --muted-foreground: 200 15% 55%;
+
+    --accent: 48 85% 52%;
+    --accent-foreground: 210 45% 4%;
+
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 16%;
+    --input: 210 30% 16%;
+    --ring: 175 65% 42%;
+    
+    --permit-hot: 15 70% 52%;
+    --permit-electric: 48 85% 52%;
+    --permit-cold: 190 70% 50%;
+    --permit-composite: 280 50% 55%;
+    
+    --status-expired: 0 60% 50%;
+    --status-warning: 40 80% 50%;
+    --status-active: 160 60% 42%;
+
+    --sidebar-background: 210 42% 6%;
+    --sidebar-foreground: 180 15% 88%;
+    --sidebar-primary: 175 65% 42%;
+    --sidebar-primary-foreground: 210 45% 4%;
+    --sidebar-accent: 210 30% 12%;
+    --sidebar-accent-foreground: 180 15% 88%;
+    --sidebar-border: 210 30% 14%;
+    --sidebar-ring: 175 60% 45%;
+
+    /* Custom theme colors - SEC formal dark */
+    --navy: 210 40% 10%;
+    --khaki: 45 30% 58%;
+    --orange: 48 85% 52%;
+    --milky: 210 45% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--muted)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / 0.3); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, hsl(var(--milky)) 0%, hsl(0 0% 100%) 50%, hsl(var(--milky)) 100%);
+  }
+
+  .dark body {
+    background: linear-gradient(160deg, hsl(210 45% 4%) 0%, hsl(210 40% 7%) 50%, hsl(210 45% 5%) 100%);
+  }
+  
+  .permit-card {
+    @apply transition-all duration-200;
+  }
+
+  /* Interactive element utilities */
+  .interactive {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .interactive-scale {
+    @apply transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .interactive-lift {
+    @apply transition-all duration-200 ease-out hover:-translate-y-0.5;
+  }
+}
+
+/* 3D Card Effects - Light Mode */
+.shadow-card-3d {
+  box-shadow: 
+    0 1px 1px hsl(220 60% 20% / 0.04),
+    0 2px 2px hsl(220 60% 20% / 0.04),
+    0 4px 4px hsl(220 60% 20% / 0.04),
+    0 8px 8px hsl(220 60% 20% / 0.04),
+    0 16px 16px hsl(220 60% 20% / 0.02);
+}
+
+.shadow-card-3d-hover {
+  box-shadow: 
+    0 1px 1px hsl(220 60% 20% / 0.06),
+    0 2px 2px hsl(220 60% 20% / 0.06),
+    0 4px 4px hsl(220 60% 20% / 0.06),
+    0 8px 8px hsl(220 60% 20% / 0.06),
+    0 16px 16px hsl(220 60% 20% / 0.04),
+    0 32px 32px hsl(220 60% 20% / 0.02);
+  transform: translateY(-2px);
+}
+
+/* 3D Card Effects - Dark Mode */
+.dark .shadow-card-3d {
+  box-shadow: 
+    0 1px 1px hsl(0 0% 0% / 0.15),
+    0 2px 2px hsl(0 0% 0% / 0.15),
+    0 4px 4px hsl(0 0% 0% / 0.15),
+    0 8px 8px hsl(0 0% 0% / 0.1),
+    0 16px 16px hsl(0 0% 0% / 0.05),
+    inset 0 1px 0 hsl(40 30% 95% / 0.05);
+}
+
+.dark .shadow-card-3d-hover {
+  box-shadow: 
+    0 1px 1px hsl(0 0% 0% / 0.2),
+    0 2px 2px hsl(0 0% 0% / 0.2),
+    0 4px 4px hsl(0 0% 0% / 0.15),
+    0 8px 8px hsl(0 0% 0% / 0.1),
+    0 16px 16px hsl(0 0% 0% / 0.08),
+    0 32px 32px hsl(0 0% 0% / 0.05),
+    inset 0 1px 0 hsl(40 30% 95% / 0.08);
+  transform: translateY(-2px);
+}
+
+/* Gradient text utilities */
+.text-gradient-navy {
+  background: linear-gradient(135deg, hsl(220 60% 20%) 0%, hsl(220 50% 35%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient-navy {
+  background: linear-gradient(135deg, hsl(40 30% 90%) 0%, hsl(30 85% 60%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Large Display Responsive Styles (2K, 4K, 8K) */
+@media (min-width: 2560px) {
+  :root {
+    font-size: 20px;
+  }
+  
+  .permit-card {
+    @apply p-6;
+  }
+}
+
+@media (min-width: 3840px) {
+  :root {
+    font-size: 28px;
+  }
+  
+  .permit-card {
+    @apply p-8;
+  }
+}
+
+/* Print Styles - Optimized for Dashboard Printing */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  html, body {
+    background: white !important;
+    color: black !important;
+    font-size: 10pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  /* Hide non-printable elements */
+  header,
+  .floating-controls,
+  .theme-toggle,
+  .print\\:hidden,
+  button:not(.print-visible),
+  [data-radix-scroll-area-viewport],
+  .scroll-area {
+    display: none !important;
+  }
+
+  /* Reset scroll container for printing */
+  .overflow-y-auto,
+  .overflow-auto,
+  [class*="overflow"] {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Container reset */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  .flex-1 {
+    flex: none !important;
+  }
+
+  /* Print header - add title */
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid hsl(220 60% 20%);
+  }
+
+  .print-header h1 {
+    font-size: 18pt !important;
+    font-weight: bold;
+    color: hsl(220 60% 20%) !important;
+    margin: 0;
+  }
+
+  .print-header p {
+    font-size: 10pt !important;
+    color: hsl(220 30% 40%) !important;
+    margin: 5px 0 0 0;
+  }
+  
+  /* Permit card print styles */
+  .permit-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #999 !important;
+    margin-bottom: 8px !important;
+    padding: 8px !important;
+    background: white !important;
+  }
+
+  /* Grid layout for print - 3 columns */
+  .grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* KPI compact bar print styling */
+  .flex.flex-wrap.items-center.gap-2 {
+    justify-content: center !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #ddd !important;
+  }
+
+  .flex.flex-wrap.items-center.gap-2 button,
+  .flex.flex-wrap.items-center.gap-2 .inline-flex {
+    border: 1px solid #ccc !important;
+    background: #f5f5f5 !important;
+    font-size: 9pt !important;
+  }
+  
+  /* Text gradient fix for print */
+  .text-gradient-navy {
+    background: none !important;
+    -webkit-text-fill-color: hsl(220 60% 20%) !important;
+    color: hsl(220 60% 20%) !important;
+  }
+
+  /* Status colors for print */
+  .text-status-active {
+    color: hsl(145 70% 30%) !important;
+    -webkit-text-fill-color: hsl(145 70% 30%) !important;
+  }
+
+  .text-status-warning {
+    color: hsl(35 90% 40%) !important;
+    -webkit-text-fill-color: hsl(35 90% 40%) !important;
+  }
+
+  .text-status-expired {
+    color: hsl(0 75% 45%) !important;
+    -webkit-text-fill-color: hsl(0 75% 45%) !important;
+  }
+
+  /* Footer with page info */
+  .print-footer {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 8pt;
+    color: #666;
+    padding: 5px;
+    border-top: 1px solid #ddd;
+  }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  .kpi-card {
+    @apply py-2;
+  }
+}
